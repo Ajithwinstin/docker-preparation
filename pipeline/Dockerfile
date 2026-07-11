@@ -1,5 +1,3 @@
-
-
 FROM python:3.13.11-slim
 COPY --from=docker.io/astral/uv:latest /uv /uvx /bin/
 
@@ -9,6 +7,6 @@ COPY pyproject.toml .python-version uv.lock ./
 RUN uv sync --locked
 
 
-COPY pipeline.py .
+COPY ingest_data.py .
 
-ENTRYPOINT ["python", "pipeline.py"]
+ENTRYPOINT ["python", "ingest_data.py"]
